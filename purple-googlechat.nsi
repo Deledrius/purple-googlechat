@@ -6,7 +6,7 @@ SetCompress off
 ; todo: SetBrandingImage
 ; HM NIS Edit Wizard helper defines
 !ifndef PRODUCT_NAME
-!define PRODUCT_NAME "purple-hangouts"
+!define PRODUCT_NAME "purple-googlechat"
 !endif
 !ifndef PRODUCT_VERSION
 !define PRODUCT_VERSION "v0.1"
@@ -39,7 +39,7 @@ SetCompress off
 ; Welcome page
 !insertmacro MUI_PAGE_WELCOME
 ; License page
-!insertmacro MUI_PAGE_LICENSE "gpl3.txt"
+!insertmacro MUI_PAGE_LICENSE "LICENSE"
 ; Directory page
 ;!define MUI_PAGE_CUSTOMFUNCTION_PRE dir_pre
 ;!insertmacro MUI_PAGE_DIRECTORY
@@ -82,9 +82,9 @@ Section "MainSection" SEC01
     SetOverwrite try
     
 	SetOutPath "$PidginDir\pixmaps\pidgin"
-	File "/oname=protocols\16\hangouts.png" "hangouts16.png"
-	File "/oname=protocols\22\hangouts.png" "hangouts22.png"
-	File "/oname=protocols\48\hangouts.png" "hangouts48.png"
+	File "/oname=protocols\16\googlechat.png" "googlechat16.png"
+	File "/oname=protocols\22\googlechat.png" "googlechat22.png"
+	File "/oname=protocols\48\googlechat.png" "googlechat48.png"
 
     SetOverwrite try
     
@@ -98,14 +98,14 @@ Section "MainSection" SEC01
 	
 	copy:
 		ClearErrors
-		Delete "$PidginDir\plugins\libhangouts.dll"
+		Delete "$PidginDir\plugins\libgooglechat.dll"
 		IfErrors dllbusy
 		SetOutPath "$PidginDir\plugins"
-	        File "libhangouts.dll"
+	        File "libgooglechat.dll"
 		Goto after_copy
 	dllbusy:
-		Delete "$PidginDir\plugins\libhangouts.dllold"
-		Rename  "$PidginDir\plugins\libhangouts.dll" "$PidginDir\plugins\libhangouts.dllold"
+		Delete "$PidginDir\plugins\libgooglechat.dllold"
+		Rename  "$PidginDir\plugins\libgooglechat.dll" "$PidginDir\plugins\libgooglechat.dllold"
 		MessageBox MB_OK "Old version of plugin detected.  You will need to restart ${PIDGIN_VARIANT} to complete installation"
 		Goto copy
 	after_copy:
