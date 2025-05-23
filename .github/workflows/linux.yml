@@ -14,7 +14,7 @@ jobs:
           sudo apt update
           sudo apt install -y libglib2.0-dev libjson-glib-dev libprotobuf-c-dev protobuf-c-compiler gettext
           # We only need these to build, not to run.  Skip the dependency check.
-          sudo apt download libpurple0 libpurple-dev
+          sudo apt download libpurple0t64 libpurple-dev
           sudo dpkg --force-depends -i libpurple0*.deb libpurple-dev*.deb
       - name: make
         run: make
