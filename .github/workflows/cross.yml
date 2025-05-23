@@ -24,12 +24,12 @@ jobs:
       - name: Download Pidgin
         if: steps.pidgin-cache.outputs.cache-hit != 'true'
         run: |
-          curl --http1.1 -L https://sourceforge.net/projects/pidgin/files/Pidgin/2.14.1/pidgin-2.14.1.tar.bz2/download -o pidgin.tar.bz2
+          curl --http1.1 -L https://sourceforge.net/projects/pidgin/files/Pidgin/2.14.14/pidgin-2.14.14.tar.bz2/download -o pidgin.tar.bz2
           tar -xf pidgin.tar.bz2
-          mv pidgin-2.14.1 pidgin
-          curl --http1.1 -L https://sourceforge.net/projects/pidgin/files/Pidgin/2.14.1/pidgin-2.14.1-win32-bin.zip/download -o pidgin-win32bin.zip
+          mv pidgin-2.14.14 pidgin
+          curl --http1.1 -L https://sourceforge.net/projects/pidgin/files/Pidgin/2.14.14/pidgin-2.14.14-win32-bin.zip/download -o pidgin-win32bin.zip
           unzip pidgin-win32bin.zip
-          cp pidgin-2.14.1-win32bin/libpurple.dll pidgin/libpurple/
+          cp pidgin-2.14.14-win32bin/libpurple.dll pidgin/libpurple/
       
       - name: Load Win32 deps from cache
         id: win32-cache
